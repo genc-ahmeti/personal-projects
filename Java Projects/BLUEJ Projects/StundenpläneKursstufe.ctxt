@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=file
+comment0.target=void\ parseHtml(java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getSch\u00FClername()
+comment2.params=
+comment2.target=java.lang.String[][]\ getStundenplan()
+comment3.params=
+comment3.target=void\ getSch\u00FClerpl\u00E4ne()
+comment4.params=
+comment4.target=void\ main()
+numComments=5

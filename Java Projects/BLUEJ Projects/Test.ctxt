@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=tasten
+comment0.target=int[]\ StringToIndex(java.lang.String)
+comment1.params=anzahlBuchstaben\ tasten
+comment1.target=java.lang.String[]\ splitString(int,\ java.lang.String)
+comment2.params=tasten\ anzahlBuchstaben
+comment2.target=void\ messungStarten(java.lang.String,\ int)
+comment3.params=limit\ anzahlProArray
+comment3.target=int[][]\ zuf\u00E4lligeMesswerte(int,\ int)
+comment4.params=
+comment4.target=void\ main()
+numComments=5

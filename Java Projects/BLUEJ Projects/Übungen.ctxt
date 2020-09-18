@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=zahl
+comment0.target=int\ A1(int)
+comment1.params=zahl
+comment1.target=java.lang.String\ A2(int)
+comment2.params=geburtsjahr
+comment2.target=java.lang.String\ A3(int)
+comment3.params=ziffer
+comment3.target=java.lang.String\ A4(int)
+comment4.params=
+comment4.target=void\ lol()
+comment5.params=
+comment5.target=double\ A6()
+comment5.text=\ \ \ public\ static\ String\ A5(int\ jahreszahl)\r\n\ \ \ \ {\r\n}
+comment6.params=
+comment6.target=double\ A7()
+comment7.params=i\ n
+comment7.target=int\ A8(int,\ int)
+comment8.params=
+comment8.target=int\ A9()
+comment9.params=args
+comment9.target=void\ main(java.lang.String[])
+comment9.text=\ \ public\ static\ int\ A11(int\ a,\ int\ b)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ int\ produkt\ \=\ 0;\r\n\ \ \ \ \ \ \ \ for(int\ i\ \=\ 0;\ i\ <\ b;\ i++)\r\n\ \ \ \ \ \ \ \ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ maximum\ \=\ n\u00E4chsteZahl\ >\ maximum\ ?\ n\u00E4chsteZahl\ \:\ maximum;\r\n\ \ \ \ \ \ \ \ \ \ \ \ n\u00E4chsteZahl\ \=\ scanner.nextInt();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ maximum;\r\n}
+numComments=10

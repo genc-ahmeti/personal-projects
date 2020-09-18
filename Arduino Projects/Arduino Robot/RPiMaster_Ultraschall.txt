@@ -1,0 +1,14 @@
+import smbus              
+import time
+import re                 # wichtig für die Entfernung von Hex-Zeichen
+
+bus = smbus.SMBus(1)      #I2C-Bus festlegen
+address = 0x40            # Slave-Adresse
+
+while True:
+      data = ""
+      for i in range(0,6):
+                  data += chr(bus.read_byte(address))                 #Zahlen einlesen
+      distance = float(re.sub(r'[^\w]', '', data) /100                #Umwandlung von String in Zahl
+      print distance
+      time.sleep(1)
