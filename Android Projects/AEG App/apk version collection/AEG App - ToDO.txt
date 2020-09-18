@@ -1,0 +1,43 @@
+SEHR UNWAHRSCHEINLICH
+	4.	 manchmal kommen nachrichtern(alerts) mehrere hintereinander (grade wenn app zum ersten Mal gestartet,
+   		dann kommen fehlermeldung wegen falscher eingabe im stundenplan und klassenname fehlt, wenn dieser dann auch noch fehlt)
+	5. 	settings oben rechts
+	7.	gesamte app mit moodle synchroniesieren (moodle login am anfang, dann alles speichern in moodle)
+		--> das wird bombe, aber das schaffe ich ja doch nicht
+
+UNWAHRSCHEINLICH (bis dahin bin ich weg :D)
+	3. sani-plan pdf einlesen
+	4. news (werbung plattform) ?? fragwürdig 
+	6. hausaufgaben ?? gut, aber es gibt bessere unkompliziertere alternativen
+
+AKTUELL
+	4. wenn kein internet, soll funktioniert/nichtfunktionieren 
+	   --> wichtig auch, wenn man mal internet hat, dann geht internet aus, was soll da passieren?
+	7. design alles schöner -> juli!!!
+
+STÖRT NICHT SO SEHR ABER WÄR GEIL
+	3. Fach oben rechts bug-testing (passieren zu viele dinge, die unerwünscht sind)
+	5. Table layout mit grid lines/rändern
+	6. spinner inhalte verändern für kursstufe je nach kurs (D5 automatisch lassen, wenn in 12.5
+	   und nicht die anderen optionen anzeigen)
+	7. spinner inhalte wenn gedrückt halten nur raum ändern oder alles
+ZUKÜNFTIG
+	1. string array items vervollständigen
+	   -> schau, ob konflikt da (bei auswahl 100, aber auch gleichzeiti raum 100 existent das ist nicht gut!)
+	3. moodle besser machen (Jsoup, speichern geht nur so) + bei änderung eines feldes onchange login deaktivieren!
+	4. pdf öffnen in webview
+	6. Terminplan ?? so wichtig ist der jetzt auch nicht, aber kann man scho machen
+	2. stundenplan aus pdf einlesen
+	2. klausurenplan aus pdf einlesen
+	2. welcher raum frei einlesen
+	2. wo ist lehrer aus pdf einlesen
+
+BESONDERES VERHALTEN AKTUELL (WENNS GEFÄLLT LASS SONST ÄNDERN)
+	- man kontrolliert nur Einträge im Stundenplan und Klassenname, wenn man zur VErtretung geht, nicht
+          schon beim speichern! (könnte man zum speicherbutton hintun)
+	- wenn man die Klassenzahl auf eine Klasse mit  einer Zahl kleiner als 11, dann wird der gesamte Stundenplaninhalt gelöscht,
+          weil in der mittelstufe andere möglichkeiten zur fachauswahl existieren (dann gibt es keine probleme damit, dass
+          wenn die spinner bei dem zeigen der gespeiecherten werte auf einmal im spinneradapter die strings nicht finden, 
+          in der unterstufe gibt es keine D4, D3... aber D)
+	- wenn man irgendwas aus spinner auswählt, wird nicht direkt gespecihert, man muss entweder den tag ändern oder auf speichern drücken 
+          das könnte man ändern, indem man im OnClickListener die Funktion erweitert auf diese Spinner!

@@ -1,0 +1,1218 @@
+
+PROBLEM BEIM JETZIGEN: leer nehmen aber wird nicht bei fachinhalt gespeichert ????
+
+
+package app.com.example.genc_ahmeti.aktiehq.app;
+
+        import android.content.Context;
+        import android.graphics.drawable.ColorDrawable;
+        import android.os.Bundle;
+        import android.support.v7.app.AppCompatActivity;
+        import android.view.LayoutInflater;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.view.ViewGroup;
+        import android.view.WindowManager;
+        import android.widget.AdapterView;
+        import android.widget.Button;
+        import android.view.View;
+        import android.content.Intent;
+        import org.joda.time.DateTime;
+        import android.app.AlertDialog;
+        import android.content.DialogInterface;
+        import android.widget.PopupWindow;
+        import android.widget.Spinner;
+        import android.widget.ArrayAdapter;
+        import android.widget.TextView;
+
+        import java.io.*;
+        import java.lang.String;
+        import java.lang.reflect.Array;
+        import java.util.ArrayList;
+        import java.util.Arrays;
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    // erster Index: Wochentag: 0-4 = Mo-Fr
+    // zweiter Index: Stunde: 0-10 = 1.-11.
+    private static String[][] stundenplan = new String[5][11];
+    private TextView[][] fächer = new TextView[5][11];
+
+    private static ArrayAdapter<String> aktuellerFachAdapter;
+    private boolean schülerIstInMittelunterstufe = true;
+
+    private static String file = "stundenplanDaten";
+
+    private static String klasseName;
+    private static int[] wochentag = new int[2];
+    private Button mBtLaunchActivity;
+    private Button etFelderInitialisieren;
+
+    private boolean klasseGeändert = false;
+
+
+private String tempPopupSpezial;
+
+    private Spinner fachSpinner;
+    private Spinner klasseSpinner;
+
+    private static ArrayAdapter<String> adapterFachMittelunterstufe;
+    private static ArrayAdapter<String> adapterFachOberstufe;
+    private static ArrayAdapter<String> adapterKlasse;
+
+    private ArrayList<String> arrList;
+    private ArrayList<String> arrList2;
+
+    private boolean schalter = false;
+    private boolean schalter2 = false;
+
+    private String fachInhalt;
+    private String klasseInhalt;
+
+    private PopupWindow popupWindow1 = null;
+    private View popupView1 = null;
+    private PopupWindow popupWindow2 = null;
+    private View popupView2 = null;
+    private PopupWindow popupWindow3 = null;
+    private View popupView3 = null;
+
+    private boolean fachOkGedrückt = false;
+    private boolean klasseOkGedrückt = false;
+
+    private String selectedItem = null;
+
+    private ArrayAdapter<String> popupAdapterFach = null;
+    private ArrayAdapter<String> popupAdapterRaum= null;
+    private ArrayAdapter<String> popupAdapterKlasse= null;
+
+    private Spinner popupFachSpinnerFach = null;
+    private Spinner popupFachSpinnerRaum= null;
+    private Spinner popupFachSpezialSpinnerRaum = null;
+    private Spinner popupKlasseSpinner= null;
+
+    private Button popupFachButton = null;
+    private Button popupFachSpezialButton = null;
+    private Button popupKlasseButton = null;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+
+        fachSpinner = (Spinner) findViewById(R.id.fach_spinner);
+        fachSpinner.setOnItemSelectedListener(this);
+        klasseSpinner = (Spinner) findViewById(R.id.klasse_spinner);
+        klasseSpinner.setOnItemSelectedListener(this);
+
+        fachInhalt = getResources().getString(R.string.fach_auswahl);
+        klasseInhalt = getResources().getString(R.string.klasse_auswahl);
+
+        arrList = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.fach_oberstufe)));
+        arrList2 = new ArrayList<String>(Arrays.asList(getResources().getStringArray(R.array.fach_mittelunterstufe)));
+        adapterFachMittelunterstufe = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrList2) {
+            @Override
+            public int getCount() {
+                return super.getCount()- 1; // ein verstecken (nämlich Fach:)
+            }
+        };
+        adapterFachMittelunterstufe.setDropDownViewResource(android.R.layout.simple_list_item_1);
+
+        adapterFachOberstufe = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrList) {
+
+            @Override
+            public int getCount() {
+                return super.getCount()- 1; // ein verstecken (nämlich Fach:)
+            }
+        };
+        adapterFachOberstufe.setDropDownViewResource(android.R.layout.simple_list_item_1);
+
+        adapterKlasse = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayListKopie(getResources().getStringArray(R.array.klasse))) {
+
+            @Override
+            public int getCount() {
+                return super.getCount()- 41; // 5a 5b, ... 12.4 12.5 + Klasse:
+            }
+
+        };
+        adapterKlasse.setDropDownViewResource(android.R.layout.simple_list_item_1);
+        klasseSpinner.setAdapter(adapterKlasse);
+
+        for (int n = 0; n < 11; n++) {
+            switch (n) {
+                case 0:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_1);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_1);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_1);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_1);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_1);
+                    break;
+                case 1:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_2);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_2);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_2);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_2);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_2);
+                    break;
+                case 2:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_3);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_3);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_3);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_3);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_3);
+                    break;
+                case 3:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_4);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_4);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_4);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_4);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_4);
+                    break;
+                case 4:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_5);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_5);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_5);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_5);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_5);
+                    break;
+                case 5:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_6);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_6);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_6);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_6);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_6);
+                    break;
+                case 6:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_7);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_7);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_7);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_7);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_7);
+                    break;
+                case 7:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_8);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_8);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_8);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_8);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_8);
+                    break;
+                case 8:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_9);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_9);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_9);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_9);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_9);
+                    break;
+                case 9:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_10);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_10);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_10);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_10);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_10);
+                    break;
+                case 10:
+                    fächer[0][n] = (TextView) findViewById(R.id.fach_Mo_11);
+                    fächer[1][n] = (TextView) findViewById(R.id.fach_Di_11);
+                    fächer[2][n] = (TextView) findViewById(R.id.fach_Mi_11);
+                    fächer[3][n] = (TextView) findViewById(R.id.fach_Do_11);
+                    fächer[4][n] = (TextView) findViewById(R.id.fach_Fr_11);
+                    break;
+            }
+        }
+
+        for(int n = 0; n < 5; n++)
+            for(int i = 0; i < 11; i++)
+            {
+                fächer[n][i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View viewIn)
+                    {
+                        String temp = fachSpinner.getSelectedItem().toString();
+                        if(!temp.equals(getResources().getString(R.string.fach_auswahl)) && !temp.equals(""))
+                        {
+                            if(!(((TextView) viewIn).getText().toString()).equals(temp))
+                                ((TextView) viewIn).setText(temp);
+                            else
+                                ((TextView) viewIn).setText(getResources().getString(R.string.fach_hint));
+                        }
+                        else
+                            ((TextView) viewIn).setText(getResources().getString(R.string.fach_hint));
+                    }});
+            }
+
+        wochentagBestimmen();
+
+        // Den Klassennamen anzeigen oben links
+        try
+        {
+            getKlasseNameFromIS(MainActivity.this);
+            klasseInhalt = klasseName;
+            klasseSpinner.setSelection(adapterKlasse.getPosition(klasseName), true);
+        }
+        catch(IOException e)
+        {
+            klasseSpinner.setSelection(adapterKlasse.getPosition(getResources().getString(R.string.klasse_auswahl)), true);
+        }
+
+
+        //Wenn im internal Storage schon frühere Stundenpläne vorhanden:
+       try
+        {
+            getStundenplanFromIS(MainActivity.this);
+            getKlasseNameFromIS(MainActivity.this);
+            klasseInhalt = klasseName;
+            if(klasseName.equals(getResources().getString(R.string.klasse_auswahl)) || klasseName.indexOf('.') == -1)
+                aktuellerFachAdapter = adapterFachMittelunterstufe;
+            else {
+                schülerIstInMittelunterstufe = false;
+                aktuellerFachAdapter = adapterFachOberstufe;
+            }
+                fachSpinner.setAdapter(aktuellerFachAdapter);
+        }
+        catch(IOException e)
+        {
+            aktuellerFachAdapter = adapterFachMittelunterstufe;
+            fachSpinner.setAdapter(aktuellerFachAdapter);
+            fachSpinner.setSelection(aktuellerFachAdapter.getPosition(getResources().getString(R.string.fach_auswahl)));
+            klasseSpinner.setSelection(adapterKlasse.getPosition(getResources().getString(R.string.klasse_auswahl)));
+
+            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+            alertDialog.setMessage("Gespeicherter Stundenplan konnte nicht gefunden werden. Bitte neu machen!");
+            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                    new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    });
+            alertDialog.show();
+        }
+
+        // Button, um zu den Vertretungen zu kommen
+        mBtLaunchActivity = (Button) findViewById(R.id.bt_launch_activity);
+        mBtLaunchActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+Intent myIntent = null;
+                try {
+                    getStundenplanFromIS(MainActivity.this);
+                    getKlasseNameFromIS(MainActivity.this);
+
+                    String fehlendeStunde = stundeKorrektEingegeben();
+                    String fehlendeKlasse = klassennameKorrektEingegeben();
+                    if (MainActivity.stundenplanEingegeben(MainActivity.this)) {
+                        if (fehlendeStunde.equals("")) {
+                            if(fehlendeKlasse.equals(""))
+                            {MainActivity.wochentagBestimmen();
+                                myIntent = new Intent(MainActivity.this, Main2Activity.class);}
+                            else {
+                                AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                                alertDialog.setMessage(fehlendeKlasse);
+                                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                        new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                dialog.dismiss();
+                                            }
+                                        });
+                                alertDialog.show();
+                            }
+                        } else {
+                            AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                            alertDialog.setMessage(fehlendeStunde);
+                            alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog.show();
+                        }
+                    }
+                }
+                catch(IOException e) {
+                    AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog.setMessage("Gespeicherter Stundenplan konnte nicht gefunden werden. Bitte neu machen!");
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                }
+                if(myIntent != null)
+                    startActivity(myIntent);
+                    }
+        });
+
+        // Button, um die Einträge zu speichern
+        etFelderInitialisieren = (Button) findViewById(R.id.et_felder_initialisieren);
+        etFelderInitialisieren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                for(int wochentag = 0; wochentag < 5; wochentag++)
+                    for(int stunde = 0; stunde < 11; stunde++)
+                        stundenplan[wochentag][stunde] = fächer[wochentag][stunde].getText().toString();
+
+                if(stundenplanEingegeben(MainActivity.this))
+                {
+                // das ist für den Klassennammen
+            klasseName = klasseSpinner.getSelectedItem().toString();
+                       try{
+                            setKlasseNameInIS();
+                        } catch (IOException e) {
+                            AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
+                            alertDialog2.setMessage("Klassenname konnte nicht gespeichert werden!");
+                            alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                                    new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.dismiss();
+                                        }
+                                    });
+                            alertDialog2.show();
+                        }
+
+                try {
+                        // hier für Fächer und räume des Stundenplans
+                        setStundenplanInIS();
+                    }
+                    catch(IOException e) {
+                    AlertDialog alertDialog2 = new AlertDialog.Builder(MainActivity.this).create();
+                    alertDialog2.setMessage("Stundenplan konnte nicht gespeichert werden!");
+                    alertDialog2.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog2.show();
+                }
+                }
+            }
+        });
+    }
+
+    public static String getKlasseName()
+    {
+        return klasseName;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings)
+        {
+
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public static String getStundenplan(int wochentag, int stunde)
+    {
+    return stundenplan[wochentag][stunde];
+    }
+
+    public static int getWochentag(int heuteOderMorgen) {
+        switch (heuteOderMorgen) {
+            case 0:
+                return wochentag[0];
+            case 1:
+                return wochentag[1];
+            default:
+                return -1;
+        }
+    }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        // parent.getItemAtPosition(pos)
+        if (schalter2 && parent.getSelectedItem().equals(""))
+            {
+                schalter2 = false;
+                fachSpinner.setSelection(adapterFachOberstufe.getPosition(fachInhalt));
+            }
+            //else if (parent == fachSpinner && pos == arrList.size()-1)
+                //fachSpinner.setSelection(adapterFachOberstufe.getPosition(fachInhalt));
+            else
+            {
+                    selectedItem = parent.getItemAtPosition(pos).toString();
+                if (popupWindow1 == null || popupWindow2 == null) {
+                    LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                    popupView1 = layoutInflater.inflate(R.layout.popup_fach, null);
+                    popupWindow1 = new PopupWindow(popupView1, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+
+                    popupView2 = layoutInflater.inflate(R.layout.popup_klasse, null);
+                    popupWindow2 = new PopupWindow(popupView2, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                }
+                if(!schülerIstInMittelunterstufe) {
+                    // popup fach
+                    popupFachSpinnerFach = (Spinner) popupView1.findViewById(R.id.popup_spinner_fach);
+                    popupFachSpinnerRaum = (Spinner) popupView1.findViewById(R.id.popup_spinner_raum);
+                    popupFachButton = (Button) popupView1.findViewById(R.id.popup_button_fach);
+                    popupFachButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            String str1 = popupFachSpinnerFach.getSelectedItem().toString();
+                            String str2 = popupFachSpinnerRaum.getSelectedItem().toString();
+
+                            if (!str1.equals(getResources().getString(R.string.fach_auswahl)) && !str2.equals(getResources().getString(R.string.raum_auswahl))) {
+                                String erg = str1 + ", " + str2;
+                                if (adapterFachOberstufe.getPosition(erg) == -1) {
+                                    arrList.remove(getResources().getStringArray(R.array.fach_oberstufe).length-1);
+                                    arrList.add(erg);
+                                    adapterFachOberstufe.notifyDataSetChanged();
+                                }
+                                fachInhalt = erg;
+                                fachSpinner.setSelection(adapterFachOberstufe.getPosition(erg), true);
+                                fachOkGedrückt = true;
+                                schalter2 = true;
+                                popupWindow1.dismiss();
+                            }
+                        }
+                    });
+                }
+                // popup klasse
+                popupKlasseSpinner = (Spinner) popupView2.findViewById(R.id.popup_spinner_klasse);
+                popupKlasseButton = (Button) popupView2.findViewById(R.id.popup_button_klasse);
+                popupKlasseButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Spinner a = popupKlasseSpinner;
+                        String str = popupKlasseSpinner.getSelectedItem().toString();
+                        klasseInhalt = str;
+                        klasseSpinner.setSelection(adapterKlasse.getPosition(str), true);
+                        klasseOkGedrückt = true;
+
+
+           /* for(int wochentag = 0; wochentag < 5; wochentag++)
+            for (int stunde = 0; stunde < 11; stunde++)
+                stundenplan[wochentag][stunde] = fächer[wochentag][stunde].getText().toString();
+                */
+           ArrayAdapter<String> temp = aktuellerFachAdapter;
+                        if(str.indexOf('.') == -1)
+                        {
+                            schülerIstInMittelunterstufe = true;
+                            aktuellerFachAdapter = adapterFachMittelunterstufe;
+                        }
+                        else
+                        {
+                            schülerIstInMittelunterstufe = false;
+                            aktuellerFachAdapter = adapterFachOberstufe;
+                        }
+                        fachSpinner.setAdapter(aktuellerFachAdapter);
+
+                        if(temp == aktuellerFachAdapter) {
+                            fachSpinner.setSelection(aktuellerFachAdapter.getPosition(fachInhalt), true);
+                            for(int wochentag = 0; wochentag < 5; wochentag++)
+                                for (int stunde = 0; stunde < 11; stunde++)
+                                {
+                                    String aktuellesFach = stundenplan[wochentag][stunde];
+                                    if (aktuellesFach != null)
+                                    {
+                                        String[][] aa = stundenplan;
+                                        fächer[wochentag][stunde].setText(aktuellesFach);
+                                    }
+                                }
+                        }
+                        else
+                        {
+                            fachInhalt = getResources().getString(R.string.fach_auswahl);
+                            fachSpinner.setSelection(aktuellerFachAdapter.getPosition(fachInhalt), true);
+                            for(int wochentag = 0; wochentag < 5; wochentag++)
+                                for (int stunde = 0; stunde < 11; stunde++)
+                                    fächer[wochentag][stunde].setText(getResources().getString(R.string.fach_hint));
+                        }
+                        popupWindow2.dismiss();
+                    }
+                });
+
+                switch (selectedItem) {
+                    case "": if(!schülerIstInMittelunterstufe)
+                    {fachInhalt = "";} break;
+                    // -------------------------------------- KLASSEN ----------------------------------------
+                    case "5":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_5)));
+                        break;
+                    case "6":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_6)));
+                        break;
+                    case "7":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_7)));
+                        break;
+                    case "8":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_8)));
+                        break;
+                    case "9":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_9)));
+                        break;
+                    case "10":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_10)));
+                        break;
+                    case "11":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_11)));
+                        break;
+                    case "12":
+                        popupAdapterKlasse = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.klasse_12)));
+                        break;
+                    // --------------------------------------- RÄUME -------------------------------------------
+                    case "000":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_000)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "100":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_100)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "200":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_200)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "300":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_300)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "ch":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_ch)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "ph":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_ph)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "bio":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_bio)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "bk":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_bk)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "com":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_com)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "s":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_s)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    case "N":
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_N)));
+                        ((Spinner) parent).setAdapter(popupAdapterRaum);
+                        break;
+                    // ---------------------------------------- FÄCHER --------------------------------------
+                    case "D":
+                        if(!schülerIstInMittelunterstufe)
+                        {
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_D)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "M":
+                        if(!schülerIstInMittelunterstufe)
+                        {
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_M)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "E":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_E)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "F":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_F)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "Ph:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ph)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                        break;
+                    case "ph:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_ph)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                        break;
+                    case "Ph":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ph_oder_ph)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "Ch:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ch)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "ch:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_ch)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "Ch":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ch_oder_ch)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "G:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_G)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "g:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_g)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "G":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_G_oder_g)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "Ek:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ek)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "ek:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_ek)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "Ek":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Ek_oder_ek)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "Bk:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Bk)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "bk:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_bk)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "Bk":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_Bk_oder_bk)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "eth":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_eth)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "kRel":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_kRel)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "S:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_S)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "s:":
+                        popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_s)));
+                        ((Spinner) parent).setAdapter(popupAdapterFach);
+                    case "S":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_S_oder_s)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "inf":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_inf)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    case "vkm":
+                        if(!schülerIstInMittelunterstufe)
+                        {popupAdapterFach = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.fach_oberstufe_vkm)));
+                        popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));}
+                        break;
+                    default:
+                }
+
+                switch (selectedItem) {
+                    // ------------------------------- FÄCHER MIT 4-/2-STÜNDIGE VARIANTE ----------------------------
+                    case "Ph":
+                    case "Ch":
+                    case "G":
+                    case "Ek":
+                    case "Bk":
+                    case "S":
+                        // ------------------------------- FÄCHER OHNE 4-/2-STÜNDIGE VARIANTE ----------------------------
+                    case "D":
+                    case "M":
+                    case "E":
+                    case "F":
+                    case "eth":
+                    case "kRel":
+                    case "inf":
+                    case "vkm":
+
+
+
+                        if(!schülerIstInMittelunterstufe)
+                        {
+                        popupAdapterFach.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        popupAdapterRaum.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        popupFachSpinnerFach.setAdapter(popupAdapterFach);
+                        popupFachSpinnerRaum.setAdapter(popupAdapterRaum);
+
+                        popupFachSpinnerFach.setOnItemSelectedListener(this);
+                        popupFachSpinnerRaum.setOnItemSelectedListener(this);
+
+                        popupWindow1.setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                        popupWindow1.setOutsideTouchable(true);
+                        popupWindow1.setFocusable(true);
+                        popupWindow1.showAsDropDown(view, 50, -30);
+                        popupWindow1.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                            @Override
+                            public void onDismiss() {
+                                if (!fachOkGedrückt)
+                                    fachSpinner.setSelection(getResources().getStringArray(R.array.fach_oberstufe).length-1, true);
+                                else
+                                    fachOkGedrückt = false;
+                            }
+                        });
+                        }
+                        break;
+                    // -------------------------------------- KLASSEN ----------------------------------------
+                    case "5":
+                    case "6":
+                    case "7":
+                    case "8":
+                    case "9":
+                    case "10":
+                    case "11":
+                    case "12":
+
+                        popupAdapterKlasse.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                        popupKlasseSpinner.setAdapter(popupAdapterKlasse);
+
+                        popupKlasseSpinner.setOnItemSelectedListener(MainActivity.this);
+
+                        popupWindow2.setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                        popupWindow2.setOutsideTouchable(true);
+                        popupWindow2.setFocusable(true);
+                        popupWindow2.showAsDropDown(view, 50, -30);
+                        popupWindow2.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                            @Override
+                            public void onDismiss() {
+                                if (!klasseOkGedrückt)
+                                    klasseSpinner.setSelection(adapterKlasse.getPosition(klasseInhalt), true);
+                                else
+                                    klasseOkGedrückt = false;
+                            }
+                        });
+                        break;
+
+                    default:// dient nur zum Abfangen von D1,D2, Kurs, Fach,......
+                }
+            }
+            if(schülerIstInMittelunterstufe && parent == fachSpinner)
+            {
+                if (schalter && parent.getSelectedItem().equals(""))
+                {
+                    schalter = false;
+                    fachSpinner.setSelection(adapterFachMittelunterstufe.getPosition(fachInhalt));
+                }
+                //else if (parent == fachSpinner && pos == arrList.size()-1)
+                //fachSpinner.setSelection(adapterFachOberstufe.getPosition(fachInhalt));
+                else
+                {
+                    selectedItem = parent.getItemAtPosition(pos).toString();
+                    if (popupWindow3 == null) {
+                        LayoutInflater layoutInflater = (LayoutInflater) getBaseContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                        popupView3 = layoutInflater.inflate(R.layout.popup_klasse, null);
+                        popupWindow3 = new PopupWindow(popupView3, WindowManager.LayoutParams.WRAP_CONTENT, WindowManager.LayoutParams.WRAP_CONTENT);
+                    }
+
+                    // popup fach spezial
+                    popupFachSpezialSpinnerRaum = (Spinner) popupView3.findViewById(R.id.popup_spinner_klasse);
+                    popupFachSpezialButton = (Button) popupView3.findViewById(R.id.popup_button_klasse);
+                    popupFachSpezialButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                String str1 = tempPopupSpezial;
+                                String str2 = popupFachSpezialSpinnerRaum.getSelectedItem().toString();
+
+                                if (!str2.equals(getResources().getString(R.string.raum_auswahl))) {
+                                    String erg = str1 + ", " + str2;
+                                    if (adapterFachMittelunterstufe.getPosition(erg) == -1)
+                                    {
+                                        arrList2.remove(getResources().getStringArray(R.array.fach_mittelunterstufe).length-1);
+                                        arrList2.add(erg);
+                                        adapterFachMittelunterstufe.notifyDataSetChanged();
+                                    }
+                                    fachInhalt = erg;
+                                    fachSpinner.setSelection(adapterFachMittelunterstufe.getPosition(erg), true);
+                                    fachOkGedrückt = true;
+                                    schalter = true;
+                                    popupWindow3.dismiss();
+                                }
+                            }
+                        });
+
+                        switch (selectedItem) {
+                        case "":
+                        fachInhalt = ""; break;
+                        // --------------------------------------- RÄUME -------------------------------------------
+                        case "000":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_000)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "100":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_100)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "200":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_200)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "300":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_300)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "ch":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_ch)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "ph":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_ph)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "bio":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_bio)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "bk":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_bk)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "com":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_com)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "s":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_s)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+                        case "N":
+                            popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum_N)));
+                            ((Spinner) parent).setAdapter(popupAdapterRaum);
+                            break;
+
+                            case "Fach:":
+                                break;
+                            case "D":
+                            case "M":
+                            case "E":
+                            case "F":
+                            case "Ph":
+                            case "Ch":
+                            case "G":
+                            case "Ek":
+                            case "Gk":
+                            case "Eth":
+                            case "EvR":
+                            case "Mu":
+                                tempPopupSpezial = selectedItem;
+                                popupAdapterRaum = new ArrayAdapter<String>(MainActivity.this, android.R.layout.simple_spinner_item, arrayListKopie(getResources().getStringArray(R.array.raum)));
+                                popupAdapterRaum.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+                                popupFachSpezialSpinnerRaum.setAdapter(popupAdapterRaum);
+
+                                popupFachSpezialSpinnerRaum.setOnItemSelectedListener(this);
+
+                                popupWindow3.setBackgroundDrawable(new ColorDrawable(getResources().getColor(android.R.color.transparent)));
+                                popupWindow3.setOutsideTouchable(true);
+                                popupWindow3.setFocusable(true);
+                                popupWindow3.showAsDropDown(view, 50, -30);
+                                popupWindow3.setOnDismissListener(new PopupWindow.OnDismissListener() {
+                                    @Override
+                                    public void onDismiss() {
+                                        if (!fachOkGedrückt)
+                                            fachSpinner.setSelection(getResources().getStringArray(R.array.fach_mittelunterstufe).length-1, true);
+                                        else
+                                            fachOkGedrückt = false;
+                                    }
+                                });
+                                break;
+                            default:
+
+                    }
+                    }
+    }
+                }
+
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+    }
+
+    public static void getStundenplanFromIS(Context context) throws IOException
+    {
+        String[][] a = stundenplan;
+        FileInputStream fIn = context.openFileInput(file);
+        int varMo = 0, varDi = 0, varMi = 0, varDo = 0, varFr = 0;
+        String wochentag;
+        int c;
+        boolean erstesLeerzeichenWarDa = false;
+        StringBuilder temp = new StringBuilder("");
+        while( (c = fIn.read()) != -1)
+        {
+            if((char) c != ' ')
+                temp.append((char) c);
+            if(((char) c == ' ' && erstesLeerzeichenWarDa) || ((char) c == ' ' && !erstesLeerzeichenWarDa) && temp.toString().length() == 3)
+            {
+                erstesLeerzeichenWarDa = false;
+                wochentag = temp.toString().substring(0, 2);
+                switch(wochentag)
+                {
+                    case "Mo":
+                        if(temp.toString().length() > 3)
+                            stundenplan[0][varMo++] = temp.toString().substring(3);
+                        else
+                            stundenplan[0][varMo++] = "";
+                        break;
+                    case "Di": if(temp.toString().length() > 3)
+                        stundenplan[1][varDi++] = temp.toString().substring(3);
+                    else
+                        stundenplan[1][varDi++] = "";
+                        break;
+                    case "Mi": if(temp.toString().length() > 3)
+                        stundenplan[2][varMi++] = temp.toString().substring(3);
+                    else
+                        stundenplan[2][varMi++] = "";
+                        break;
+                    case "Do": if(temp.toString().length() > 3)
+                        stundenplan[3][varDo++] = temp.toString().substring(3);
+                    else
+                        stundenplan[3][varDo++] = "";
+                        break;
+                    case "Fr": if(temp.toString().length() > 3)
+                        stundenplan[4][varFr++] = temp.toString().substring(3);
+                    else
+                        stundenplan[4][varFr++] = "";
+                        break;
+                }
+                temp.setLength(0);
+                temp.trimToSize();
+                continue;
+            }
+
+            if((char) c == ' ' && !erstesLeerzeichenWarDa)
+            {
+                erstesLeerzeichenWarDa = true;
+                temp.append((char) c);
+            }
+
+
+        }
+        String[][] aa = stundenplan;
+    }
+
+    public void setKlasseNameInIS() throws IOException
+    {
+        FileOutputStream fOut = openFileOutput("klasseNameIS",MODE_PRIVATE);
+        // erst die Klasse
+        fOut.write(getKlasseName().getBytes());
+    }
+
+    public static void getKlasseNameFromIS(Context context) throws IOException
+    {
+        FileInputStream fIn = context.openFileInput("klasseNameIS");
+
+        int c;
+        StringBuilder temp = new StringBuilder("");
+        while( (c = fIn.read()) != -1) {
+            temp.append((char) c);
+        }
+        klasseName = temp.toString();
+    }
+
+    public void setStundenplanInIS() throws IOException
+    {
+        FileOutputStream fOut = openFileOutput(file,MODE_PRIVATE);
+
+        // jetzt kommen die Fächer
+        for(int wochentag = 0; wochentag < 5; wochentag++)
+            for(int stunde = 0; stunde < 11; stunde++)
+            {
+                switch(wochentag)
+                {
+                    case 0: fOut.write("Mo:".getBytes()); break;
+                    case 1: fOut.write("Di:".getBytes()); break;
+                    case 2: fOut.write("Mi:".getBytes()); break;
+                    case 3: fOut.write("Do:".getBytes()); break;
+                    case 4: fOut.write("Fr:".getBytes()); break;
+                }
+                fOut.write((stundenplan[wochentag][stunde] + " ").getBytes());
+            }
+        fOut.close();
+    }
+
+    private int getWochentag(String wochentagPräfix)
+    {
+        switch(wochentagPräfix)
+        {
+            case "Mo":
+                return 0;
+            case "Di":
+                return 1;
+            case "Mi":
+                return 2;
+            case "Do":
+                return 3;
+            case "Fr":
+                return 4;
+        }
+        return -1;
+    }
+
+    public static boolean stundenplanEingegeben(Context context)
+    {
+        String strWochentag = "";
+        for(int wochentag = 0; wochentag < 5; wochentag++)
+            for(int stunde = 0; stunde < 11; stunde++)
+                if(stundenplan[wochentag][stunde] == null) {
+                    switch(wochentag)
+                    {
+                        case 0:
+                            strWochentag += "Montag wurde nicht eingetragen und gespeichert!";
+                            break;
+                        case 1:
+                            strWochentag += "Dienstag wurde nicht eingetragen und gespeichert!";
+                            break;
+                        case 2:
+                            strWochentag += "Mittwoch wurde nicht eingetragen und gespeichert!";
+                            break;
+                        case 3:
+                            strWochentag += "Donnerstag wurde nicht eingetragen und gespeichert!";
+                            break;
+                        case 4:
+                            strWochentag += "Freitag wurde nicht eingetragen und gespeichert!";
+                            break;
+                    }
+                    AlertDialog alertDialog = new AlertDialog.Builder(context).create();
+                    alertDialog.setMessage(strWochentag);
+                    alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            });
+                    alertDialog.show();
+                    return false;
+                }
+        return true;
+    }
+
+    public static void wochentagBestimmen()
+    {
+        //Bestimmung von heutigem/morgigem Tag bezüglich der Vertretungen
+        //wenn samstag, sonntag heute: heuteVertretung:Montag, morgenVertretung:Montag
+
+        //Tag der Woche, von 1-7, Mo-So
+        int dayOfWeek = new DateTime().getDayOfWeek();
+
+        if (dayOfWeek == 6 || dayOfWeek == 7) {
+            wochentag[0] = 1;
+            wochentag[1] = 1;
+        } else if (dayOfWeek == 5) {
+            wochentag[0] = 5;
+            wochentag[1] = 1;
+        } else {
+            wochentag[0] = dayOfWeek;
+            wochentag[1] = wochentag[0] + 1;
+        }
+    }
+
+    public static String stundeKorrektEingegeben() {
+        /*String tag = "";
+        for(int wochentag = 0; wochentag < 5; wochentag++) {
+            switch(wochentag) {
+                case 0: tag = "Montag"; break;
+                case 1: tag = "Dienstag"; break;
+                case 2: tag = "Mittwoch"; break;
+                case 3: tag = "Donnerstag"; break;
+                case 4: tag = "Freitag"; break;
+            }
+
+            for (int stunde = 0; stunde < 11; stunde++) {
+                String stunden = stundenplan[wochentag][stunde];
+
+                if(stunden.length() == 2)
+                    continue;
+              //  if(stunden.equals("Fach, Raum"))
+                //    return "Die " + Integer.toString(stunde+1) + ". Stunde am " + tag + "ist gar nicht eingetragen!";
+                if((stunden.substring(0, stunden.indexOf(',')).equals("Fach")
+                        && !stunden.substring(stunden.indexOf(' ')+1).equals("Raum"))
+                    || (!stunden.substring(0, stunden.indexOf(',')).equals("Fach")
+                        && stunden.substring(stunden.indexOf(' ')+1).equals("Raum")))
+                    return "Die " + Integer.toString(stunde+1) + ". Stunde am " + tag + " ist unvollständig eingetragen.";
+                if (stundenplan[wochentag][stunde].indexOf(',') == 0 || stundenplan[wochentag][stunde].indexOf(' ') == stundenplan[wochentag][stunde].length()-1)
+                    return "Die " + Integer.toString(stunde+1) + ". Stunde am " + tag + " ist unvollständig eingetragen.";
+            }
+        }*/
+        return "";
+    }
+
+    public boolean istImAdapterVorhanden(ArrayAdapter<String> arrayAdapter,String str) {
+return arrayAdapter.getPosition(str) != -1;
+    }
+
+    public static String klassennameKorrektEingegeben()
+    {
+       /* if(klasseName.equals("Klassenstufe, Kurs"))
+            return "Klassenstufe und Kurs müssen angegeben werden!";
+        if((klasseName.substring(0, klasseName.indexOf(',')).equals("Klassenstufe")
+                && !klasseName.substring(klasseName.indexOf(' ')+1).equals("Kurs"))
+                || (!klasseName.substring(0, klasseName.indexOf(',')).equals("Klassenstufe")
+                && klasseName.substring(klasseName.indexOf(' ')+1).equals("Kurs")))
+                    return "Klassenname unvollständig. Bitte neu eingeben!";
+            if (Integer.parseInt(klasseName.substring(0, klasseName.indexOf(','))) > 10 && Character.isLetter(klasseName.charAt(klasseName.length() - 1)))
+                return "Die Kurswahl (a-e) ist nicht für die Kursstufe gedacht!";
+            if (Integer.parseInt(klasseName.substring(0, klasseName.indexOf(','))) < 11 && Character.isDigit(klasseName.charAt(klasseName.length() - 1)))
+                return "Die Kurswahl (1-5) ist nur für die Kursstufe gedacht!";
+*/
+            return "";
+    }
+
+    public static void setAktuellerFachAdapter(ArrayAdapter<String> arrayAdapter)
+    {
+        aktuellerFachAdapter = arrayAdapter;
+    }
+
+    public static ArrayAdapter<String> getAdapterOberstufe()
+    {
+        return adapterFachOberstufe;
+    }
+
+    public static ArrayAdapter<String> getAdapterMittelunterstufe()
+    {
+        return adapterFachMittelunterstufe;
+    }
+
+    public int wieVieleSpinnerItemsVersteckenKlasse() {
+// Hint + Leer
+        int anzahlZuVersteckenderItems = 1;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_5).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_6).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_7).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_8).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_9).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_10).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_11).length;
+        anzahlZuVersteckenderItems += getResources().getStringArray(R.array.klasse_12).length;
+
+        return anzahlZuVersteckenderItems;
+    }
+
+    public ArrayList<String> arrayListKopie (String[] arrStr)
+    {
+        ArrayList<String> arrList = new ArrayList<>(arrStr.length);
+        for(int n = 0; n < arrStr.length; n++)
+            arrList.add(arrStr[n]);
+        return arrList;
+    }
+}
+
