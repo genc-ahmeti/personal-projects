@@ -1,0 +1,1359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StundenplanSeite">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/klasse_spinner"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="40dp"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TableLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:layout_width="@dimen/stunde_horizontal"
+                            android:layout_height="@dimen/table_vertical"
+                            android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:text="" />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_1"
+                            android:layout_width="@dimen/stunde_horizontal"
+                            android:layout_height="@dimen/table_vertical"
+                            android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:text="1." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_2"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="2." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_3"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="3." />
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_4"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="4." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_5"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="5." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_6"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="6." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_7"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="7." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_8"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="8." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_9"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="9." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_10"
+                            android:layout_width="@dimen/stunde_horizontal"
+                            android:layout_height="@dimen/table_vertical"
+                            android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:text="10." />
+
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:paddingTop="10dp">
+
+                        <TextView
+                            android:id="@+id/stunde_11"
+                            android:layout_width="@dimen/stunde_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                            android:layout_height="@dimen/table_vertical"
+                            android:text="11." />
+
+                    </TableRow>
+                </TableLayout>
+
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:fillViewport="true">
+
+                    <TableLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent">
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:gravity="center"
+                                android:text="Mo" />
+
+                            <TextView
+                                android:id="@+id/fach_Di"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:gravity="center"
+                                android:text="Di" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:gravity="center"
+                                android:text="Mi" />
+
+                            <TextView
+                                android:id="@+id/fach_Do"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:gravity="center"
+                                android:text="Do" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:gravity="center"
+                                android:text="Fr" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_1"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_1"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_1"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_1"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_1"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_2"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_2"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_2"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_2"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_2"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_3"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_3"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_3"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_3"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_3"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_4"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_4"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_4"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_4"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_4"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_5"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_5"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_5"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_5"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_5"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_6"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_6"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_6"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_6"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_6"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_7"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_7"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_7"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_7"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_7"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_8"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_8"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_8"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_8"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_8"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_9"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_9"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_9"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_9"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_9"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_10"
+                                android:layout_width="@dimen/table_horizontal"
+                                android:layout_height="@dimen/table_vertical"
+                                android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_10"
+                                android:layout_width="@dimen/table_horizontal"
+                                android:layout_height="@dimen/table_vertical"
+                                android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_10"
+                                android:layout_width="@dimen/table_horizontal"
+                                android:layout_height="@dimen/table_vertical"
+                                android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_10"
+                                android:layout_width="@dimen/table_horizontal"
+                                android:layout_height="@dimen/table_vertical"
+                                android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_10"
+                                android:layout_width="@dimen/table_horizontal"
+                                android:layout_height="@dimen/table_vertical"
+                                android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:text="" />
+
+                        </TableRow>
+
+                        <TableRow
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:paddingTop="10dp">
+
+                            <TextView
+                                android:id="@+id/fach_Mo_11"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Di_11"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Mi_11"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Do_11"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                            <TextView
+                                android:id="@+id/fach_Fr_11"
+                                android:layout_width="@dimen/table_horizontal" android:layout_marginLeft="@dimen/table_marginLeft"
+                                android:layout_height="@dimen/table_vertical"
+                                android:text="" />
+
+                        </TableRow>
+                    </TableLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+    
+    
+       <!-- <ScrollView
+            android:id="@+id/scrollView2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <Spinner
+                            android:id="@+id/klasse_spinner"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                             
+                               <TextView
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="" />
+
+                                        <TextView
+                                            android:id="@+id/stunde_1"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="1." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_2"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="2." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_3"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="3." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_4"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="4." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_5"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="5." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_6"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="6." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_7"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="7." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_8"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="8." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_9"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="9." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_10"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="10." />
+
+                                        <TextView
+                                            android:id="@+id/stunde_11"
+                                            android:layout_width="@dimen/stunde_horizontal"
+                                            android:layout_height="@dimen/table_vertical"
+                                            
+                                            android:layout_marginLeft="@dimen/table_marginLeft"
+                                            
+                                            android:text="11." />
+                            
+                                <HorizontalScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:fillViewport="true">
+                                    
+                                    <TextView
+                                                    android:id="@+id/fach_Mo"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:gravity="center"
+                                                    android:text="Mo" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:gravity="center"
+                                                    android:text="Di" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:gravity="center"
+                                                    android:text="Mi" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:gravity="center"
+                                                    android:text="Do" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:gravity="center"
+                                                    android:text="Fr" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_1"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_1"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_1"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_1"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_1"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_2"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_2"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_2"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_2"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_2"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_3"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_3"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_3"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_3"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_3"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_4"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_4"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_4"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_4"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_4"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_5"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_5"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_5"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_5"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_5"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_6"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_6"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_6"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_6"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_6"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_7"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_7"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_7"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_7"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_7"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_8"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_8"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_8"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_8"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_8"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_9"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_9"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_9"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_9"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_9"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_10"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_10"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_10"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_10"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_10"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mo_11"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Di_11"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Mi_11"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Do_11"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+
+                                                <TextView
+                                                    android:id="@+id/fach_Fr_11"
+                                                    android:layout_width="@dimen/table_horizontal"
+                                                    android:layout_height="@dimen/table_vertical"
+                                                    
+                                                    android:layout_marginLeft="@dimen/table_marginLeft"
+                                                    
+                                                    android:text="" />
+                                </HorizontalScrollView>
+                        </LinearLayout>
+                </LinearLayout>
+        </ScrollView>-->
+</android.support.constraint.ConstraintLayout>

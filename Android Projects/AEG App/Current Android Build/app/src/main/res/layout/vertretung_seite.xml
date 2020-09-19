@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VertretungSeite">
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/btnAktualisieren"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:background="@android:drawable/ic_popup_sync"
+                android:backgroundTint="@android:color/darker_gray"
+                android:drawable="@android:drawable/ic_popup_sync" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+                android:gravity="center"
+                android:text="Heute" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+                android:gravity="center"
+                android:text="Morgen" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="07:40 \n08:25" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde1"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde1"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="08:30 \n09:15" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde2"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde2"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="Große\nPause" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="09:35 \n10:20" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde3"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde3"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="10:25\n11:10" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde4"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde4"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="Kleine\nPause" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView15"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="11:20\n12:05" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde5"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde5"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="12:10\n12:55" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde6"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde6"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="Kleine\nPause" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="13:05\n13:50" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde7"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde7"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="13:55\n14:40" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde8"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde8"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="14:45\n15:30" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde9"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde9"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="15:35\n16:20" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde10"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde10"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="@dimen/vertretungLeer"
+                android:layout_height="@dimen/vertretungVertical"
+                android:text="16:25\n17:10" />
+
+            <TextView
+                android:id="@+id/textHeuteStunde11"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+            <TextView
+                android:id="@+id/textMorgenStunde11"
+                android:layout_width="@dimen/vertretungHorizontal"
+                android:layout_height="@dimen/vertretungVertical"
+
+
+                android:text="@string/fach_raum" />
+
+        </TableRow>
+    </TableLayout>
+</ScrollView>
+</android.support.constraint.ConstraintLayout>

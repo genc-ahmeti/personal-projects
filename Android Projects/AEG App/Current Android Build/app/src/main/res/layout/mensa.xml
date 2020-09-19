@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/background_light"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/mensa_button1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/popupSpinner_height"
+                android:layout_weight="1"
+                android:text="Preisliste"/>
+
+            <Spinner
+                android:id="@+id/mensa_spinner"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/popupSpinner_height"
+                android:layout_weight="1"/>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/mensa_button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/aktualisieren"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TableLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+
+                    <TextView
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical2"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview2"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview4"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview6"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview8"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview10"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview12"
+                        android:layout_width="@dimen/mensa_horizontal2"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /></TableRow>
+            </TableLayout>
+
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview1"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical2"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview3"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview5"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview7"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview9"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview11"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingTop="10dp">
+                    <TextView
+                        android:id="@+id/mensa_textview13"
+                        android:layout_width="@dimen/mensa_horizontal"
+                        android:layout_height="@dimen/mensa_vertical"
+                        android:layout_marginLeft="@dimen/mensa_marginLeft"
+                        android:text="" /> </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
