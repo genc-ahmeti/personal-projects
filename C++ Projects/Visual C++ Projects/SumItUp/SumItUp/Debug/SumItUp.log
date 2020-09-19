@@ -1,0 +1,45 @@
+﻿Der Buildvorgang wurde am 25.08.2016 20:50:50 gestartet.
+     1>Projekt "D:\Visual C++\SumItUp\SumItUp\SumItUp.vcxproj" auf Knoten "2", rebuild Ziel(e).
+     1>_PrepareForClean:
+         Die Datei "Debug\SumItUp.lastbuildstate" wird gelöscht.
+       InitializeBuildStatus:
+         "Debug\SumItUp.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt SumItUp.cpp
+         SumItUp.cpp
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(12): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(14): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(35): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(66): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(110): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(114): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(122): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(134): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(141): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(145): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(154): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(156): warning C4553: '==': Operator hat keine Auswirkungen; ist '=' beabsichtigt?
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(174): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(176): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\sumitup\sumitup\sumitup.cpp(196): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\SumItUp.exe.embed.manifest.res" Debug\SumItUp_manifest.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visual C++\SumItUp\Debug\SumItUp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SumItUp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Visual C++\SumItUp\Debug\SumItUp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visual C++\SumItUp\Debug\SumItUp.lib" /MACHINE:X86 Debug\SumItUp.exe.embed.manifest.res
+         Debug\SumItUp.obj
+       Manifest:
+         Die Datei "Debug\SumItUp.exe.embed.manifest" wird gelöscht.
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\SumItUp.exe.embed.manifest" /manifest Debug\SumItUp.exe.intermediate.manifest
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo"Debug\SumItUp.exe.embed.manifest.res" Debug\SumItUp_manifest.rc 
+       LinkEmbedManifest:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visual C++\SumItUp\Debug\SumItUp.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SumItUp.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Visual C++\SumItUp\Debug\SumItUp.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visual C++\SumItUp\Debug\SumItUp.lib" /MACHINE:X86 Debug\SumItUp.exe.embed.manifest.res
+         Debug\SumItUp.obj
+         SumItUp.vcxproj -> D:\Visual C++\SumItUp\Debug\SumItUp.exe
+       FinalizeBuildStatus:
+         Die Datei "Debug\SumItUp.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "Debug\SumItUp.lastbuildstate".
+     1>Die Erstellung des Projekts "D:\Visual C++\SumItUp\SumItUp\SumItUp.vcxproj" ist abgeschlossen, rebuild Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:06.66

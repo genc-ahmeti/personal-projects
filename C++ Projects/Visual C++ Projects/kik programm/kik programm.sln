@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "kik programm", "kik programm\kik programm.vcxproj", "{1DAA7744-E638-4F0E-94B1-54733DEA02C5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multiples kik", "multiples kik\multiples kik.vcxproj", "{4D334594-0A5A-47C2-BD2D-687A38ECCF03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DAA7744-E638-4F0E-94B1-54733DEA02C5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1DAA7744-E638-4F0E-94B1-54733DEA02C5}.Debug|Win32.Build.0 = Debug|Win32
+		{1DAA7744-E638-4F0E-94B1-54733DEA02C5}.Release|Win32.ActiveCfg = Release|Win32
+		{1DAA7744-E638-4F0E-94B1-54733DEA02C5}.Release|Win32.Build.0 = Release|Win32
+		{4D334594-0A5A-47C2-BD2D-687A38ECCF03}.Debug|Win32.ActiveCfg = Debug|Win32
+		{4D334594-0A5A-47C2-BD2D-687A38ECCF03}.Debug|Win32.Build.0 = Debug|Win32
+		{4D334594-0A5A-47C2-BD2D-687A38ECCF03}.Release|Win32.ActiveCfg = Release|Win32
+		{4D334594-0A5A-47C2-BD2D-687A38ECCF03}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

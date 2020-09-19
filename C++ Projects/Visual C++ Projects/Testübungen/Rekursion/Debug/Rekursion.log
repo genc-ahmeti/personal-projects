@@ -1,0 +1,26 @@
+﻿Der Buildvorgang wurde am 23.02.2016 22:35:55 gestartet.
+     1>Projekt "D:\Visual C++\Testübungen\Rekursion\Rekursion.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         "Debug\Rekursion.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt "Fakultät.cpp"
+         Fakultät.cpp
+       ManifestResourceCompile:
+         Alle Ausgaben sind aktuell.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visual C++\Testübungen\Debug\Rekursion.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Rekursion.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Visual C++\Testübungen\Debug\Rekursion.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visual C++\Testübungen\Debug\Rekursion.lib" /MACHINE:X86 Debug\Rekursion.exe.embed.manifest.res
+         "Debug\Fakultät.obj"
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Rekursion.exe.embed.manifest" /manifest Debug\Rekursion.exe.intermediate.manifest
+         Alle Ausgaben sind aktuell.
+       LinkEmbedManifest:
+         Alle Ausgaben sind aktuell.
+         Rekursion.vcxproj -> D:\Visual C++\Testübungen\Debug\Rekursion.exe
+       FinalizeBuildStatus:
+         Die Datei "Debug\Rekursion.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "Debug\Rekursion.lastbuildstate".
+     1>Die Erstellung des Projekts "D:\Visual C++\Testübungen\Rekursion\Rekursion.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:00.84

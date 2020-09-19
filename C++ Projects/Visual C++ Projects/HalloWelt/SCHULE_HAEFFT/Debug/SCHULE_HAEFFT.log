@@ -1,0 +1,31 @@
+﻿Der Buildvorgang wurde am 21.08.2016 02:06:21 gestartet.
+     1>Projekt "D:\Visual C++\HalloWelt\SCHULE_HAEFFT\SCHULE_HAEFFT.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         "Debug\SCHULE_HAEFFT.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt HALLOWELT.cpp
+         HALLOWELT.cpp
+     1>d:\visual c++\hallowelt\schule_haefft\hallowelt.cpp(12): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\hallowelt\schule_haefft\hallowelt.cpp(14): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\hallowelt\schule_haefft\hallowelt.cpp(14): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\hallowelt\schule_haefft\hallowelt.cpp(23): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+     1>d:\visual c++\hallowelt\schule_haefft\hallowelt.cpp(25): warning C4018: '<': Konflikt zwischen 'signed' und 'unsigned'
+       ManifestResourceCompile:
+         Alle Ausgaben sind aktuell.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Visual C++\HalloWelt\Debug\SCHULE_HAEFFT.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\SCHULE_HAEFFT.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"D:\Visual C++\HalloWelt\Debug\SCHULE_HAEFFT.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Visual C++\HalloWelt\Debug\SCHULE_HAEFFT.lib" /MACHINE:X86 Debug\SCHULE_HAEFFT.exe.embed.manifest.res
+         Debug\HALLOWELT.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\SCHULE_HAEFFT.exe.embed.manifest" /manifest Debug\SCHULE_HAEFFT.exe.intermediate.manifest
+         Alle Ausgaben sind aktuell.
+       LinkEmbedManifest:
+         Alle Ausgaben sind aktuell.
+         SCHULE_HAEFFT.vcxproj -> D:\Visual C++\HalloWelt\Debug\SCHULE_HAEFFT.exe
+       FinalizeBuildStatus:
+         Die Datei "Debug\SCHULE_HAEFFT.unsuccessfulbuild" wird gelöscht.
+         Aktualisieren des Timestamps von "Debug\SCHULE_HAEFFT.lastbuildstate".
+     1>Die Erstellung des Projekts "D:\Visual C++\HalloWelt\SCHULE_HAEFFT\SCHULE_HAEFFT.vcxproj" ist abgeschlossen, build Ziel(e).
+
+Das Erstellen war erfolgreich.
+
+Verstrichene Zeit 00:00:04.97

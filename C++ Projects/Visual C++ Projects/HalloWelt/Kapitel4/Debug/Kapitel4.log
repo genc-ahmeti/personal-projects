@@ -1,0 +1,15 @@
+﻿Der Buildvorgang wurde am 29.08.2015 19:18:41 gestartet.
+     1>Projekt "D:\Visual C++\HalloWelt\Kapitel4\Kapitel4.vcxproj" auf Knoten "2", build Ziel(e).
+     1>InitializeBuildStatus:
+         "Debug\Kapitel4.unsuccessfulbuild" wird erstellt, da "AlwaysCreate" angegeben wurde.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt "Grad-Fahrenheit_Umrechner.cpp"
+         Grad-Fahrenheit_Umrechner.cpp
+     1>d:\visual c++\hallowelt\kapitel4\grad-fahrenheit_umrechner.cpp(5): error C2059: Syntaxfehler: '}'
+     1>d:\visual c++\hallowelt\kapitel4\grad-fahrenheit_umrechner.cpp(5): error C2143: Syntaxfehler: Es fehlt ';' vor '}'
+     1>d:\visual c++\hallowelt\kapitel4\grad-fahrenheit_umrechner.cpp(5): error C2059: Syntaxfehler: '}'
+     1>Die Erstellung des Projekts "D:\Visual C++\HalloWelt\Kapitel4\Kapitel4.vcxproj" ist abgeschlossen, build Ziel(e) -- FEHLER.
+
+Fehler beim Erstellen
+
+Verstrichene Zeit 00:00:01.64
