@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Data Flow example</title>
+    <!-- note: this file is not actually in that location -->
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<form id="form_loadUser" action="">
+    <label for="fname">Test loadUser</label><br>
+    <label for="fname">Name:</label><br>
+    <input type="text" id="fname" name="fname" value=""><br>
+    <label for="lname">Password:</label><br>
+    <input type="text" id="lname" name="lname" value=""><br>
+    <input id="submit_loadUser" type="button" value="loadUser"><br><br><br>
+</form>
+
+<form id="form_getRawImages" action="">
+    <label for="fname">Test getRawImages</label><br>
+    <label for="fname">Username:</label><br>
+    <input type="text" name="fname" value=""><br>
+    <input id="submit_getRawImages" type="button" value="getRawImages"><br><br><br>
+</form>
+
+<form id="form_getStylizedImages" action="">
+    <label for="fname">Test getStylizedImages</label><br>
+    <label for="fname">Username:</label><br>
+    <input type="text" name="fname" value=""><br>
+    <input id="submit_getStylizedImages" type="button" value="getStylizedImages"><br><br><br>
+</form>
+
+<form id="form_saveRawImage" action="">
+    <label for="fname">Test saveRawImage</label><br>
+    <label for="fname">Username:</label><br>
+    <input type="text" name="fname" value=""><br>
+    <label for="fname">Path of Raw Image:</label><br>
+    <input type="text" name="fpath" value=""><br>
+    <input id="submit_saveRawImage" type="button" value="saveRawImage"><br><br><br>
+</form>
+
+<form id="form_saveStylizedImage" action="">
+    <label for="fname">Test saveStylizedImage</label><br>
+    <label for="fname">Username:</label><br>
+    <input type="text" name="fname" value=""><br>
+    <label for="fname">Path of Raw Image:</label><br>
+    <input type="text" name="fpath" value=""><br>
+    <label for="fname">Path of Style:</label><br>
+    <input type="text" name="fpath" value=""><br>
+    <label for="fname">Path of Stylized Image:</label><br>
+    <input type="text" name="fpath" value=""><br>
+    <input id="submit_saveStylizedImage" type="button" value="saveStylizedImage"><br><br><br>
+</form>
+
+<label for="fname">Send NST Request</label><br>
+<input id="submit_NST" type="button" value="send"><br><br><br>
+
+<form id="form_updateUser" action="">
+    <label for="fname">Test updateUser</label><br>
+    <label for="fname">Name:</label><br>
+    <input type="text"  name="fname" value=""><br>
+    <label for="lname">SessionId:</label><br>
+    <input type="text"  name="xname" value=""><br>
+    <input id="submit_updateUser" type="button" value="updateUser"><br><br><br>
+</form>
+
+<label for="fname">Logout</label><br>
+<input id="submit_logoutRequest" type="button" value="send"><br><br><br>
+
+
+
+<script type="text/javascript">
+
+    const socket = io();
+
+    function send_loadUser_Request() {
+
+        const form = document.getElementById('form_loadUser');
+
+        const user = form.elements[0].value;
+        const pass = form.elements[1].value;
+
+        console.log("send_loadUser_Request");
+
+        socket.emit('request',
+            {
+                type: 'login',
+                data: {
+                    username: user,
+                    password: pass
+                },
+                username: user,
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function send_getRawImages_Request() {
+
+        const form = document.getElementById('form_getRawImages');
+
+        const user = form.elements[0].value;
+
+        console.log("send_getRawImages_Request");
+
+        socket.emit('request',
+            {
+                type: 'getRawImages',
+                data: {
+                    username: user,
+                },
+                username: user,
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function send_getStylizedImages_Request() {
+
+        const form = document.getElementById('form_getStylizedImages');
+
+        const user = form.elements[0].value;
+
+        console.log("send_getStylizedImages_Request");
+
+        socket.emit('request',
+            {
+                type: 'getStylizedImages',
+                data: {
+                    username: user,
+                },
+                username: user,
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function send_saveRawImage_Request() {
+
+        const form = document.getElementById('form_saveRawImage');
+
+        const user = form.elements[0].value;
+        const raw = form.elements[1].value;
+
+        console.log("send_saveRawImage_Request");
+
+        socket.emit('request',
+            {
+                type: 'saveRawImage',
+                data: {
+                    username: user,
+                    rawPath: raw
+                },
+                username: user,
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function send_saveStylizedImage_Request() {
+
+        const form = document.getElementById('form_saveStylizedImage');
+
+        const user = form.elements[0].value;
+        const raw = form.elements[1].value;
+        const style = form.elements[2].value;
+        const stylized = form.elements[3].value;
+
+        console.log("send_saveStylizedImage_Request");
+
+        socket.emit('request',
+            {
+                type: 'saveStylizedImage',
+                data: {
+                    username: user,
+                    rawPath: raw,
+                    stylePath: style,
+                    stylizedPath: stylized
+                },
+                username: user,
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function sendNSTRequest() {
+
+        console.log("sendNSTRequest");
+
+        socket.emit('request',
+            {
+                type: 'style_transfer',
+                data: {
+                    rawImg: "./images/testuser/rawImgs/oehm.jpeg",
+                    style: "./fast_neural_style/saved_models/candy.jpg"
+                },
+                username: 'testuser',
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function send_updateUser_Request() {
+
+        const form = document.getElementById('form_updateUser');
+
+        const user = form.elements[0].value;
+        const sessionID = form.elements[1].value;
+
+        console.log("send_updateUser_Request");
+
+        socket.emit('request',
+            {
+                type: 'update_user',
+                data: {
+                    username: user,
+                },
+                username: user,
+                sessionID: sessionID
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    function sendLogoutRequest() {
+
+        console.log("sendLogoutRequest");
+
+        socket.emit('request',
+            {
+                type: 'logout',
+                data: {},
+                username: 'testuser',
+                sessionID: '420'
+            }
+            , response => {
+                // do something with the server's response
+                console.log(response);
+            });
+    }
+
+    document.getElementById("submit_loadUser").addEventListener('click', send_loadUser_Request);
+    document.getElementById("submit_getRawImages").addEventListener('click', send_getRawImages_Request);
+    document.getElementById("submit_getStylizedImages").addEventListener('click', send_getStylizedImages_Request);
+    document.getElementById("submit_saveRawImage").addEventListener('click', send_saveRawImage_Request);
+    document.getElementById("submit_saveStylizedImage").addEventListener('click', send_saveStylizedImage_Request);
+    document.getElementById("submit_NST").addEventListener('click', sendNSTRequest);
+    document.getElementById("submit_updateUser").addEventListener('click', send_updateUser_Request);
+    document.getElementById("submit_logoutRequest").addEventListener('click', sendLogoutRequest);
+
+
+</script>
+
+</body>
+</html>

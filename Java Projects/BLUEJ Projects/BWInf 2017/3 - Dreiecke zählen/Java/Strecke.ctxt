@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Strecke()
+comment0.text=\r\n\ Konstruktoren\r\n
+comment1.params=start\ ende
+comment1.target=Strecke(Punkt,\ Punkt)
+comment2.params=s
+comment2.target=boolean\ equals(Strecke)
+comment3.params=
+comment3.target=Punkt[]\ getStrecke()
+comment3.text=\r\n\ Setter\ und\ Getter\r\n
+comment4.params=start\ ende
+comment4.target=void\ setStrecke(Punkt,\ Punkt)
+comment5.params=p\ pos
+comment5.target=void\ setStrecke(Punkt,\ int)
+comment6.params=pos
+comment6.target=Punkt\ getPunktVonStrecke(int)
+numComments=7

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neural Style Transfer</title>
+    <link rel="stylesheet" type="text/css" href="./css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"/>
+    <script type="text/javascript" src="./js/js.cookie.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript" src="./js/uploader.js"></script>
+</head>
+
+<body>
+<div id="background">
+
+<!-- NAVBAR -->
+<div id="navbar">
+    <button id="home">Home</button>
+    <button id="create">Create</button>
+    <button id="about">About</button>
+    <button id="theTeam">The Team</button>
+    <button id="loginButton" type="button">Login</button>
+    <button id="logoutButton" class="invisible">Logout</button>
+    <button id="profile" class="invisible">Profile</button>
+</div>
+
+<!-- HOME -->
+<div id="homeScreen">
+        <div id="welcomeDiv">
+            <h1>We make Art out of Your Image</h1>
+            <p>Apply one of our 10 sweet styles to your pictures using
+                a state-of-the-art Deep Neural Network model.</p>
+            <div id="demonstration">
+                <img src="./img/Einstein_raw.jpg">
+                <h2>&#9654;</h2>
+                <img src="./img/Einstein_stylized.jpg">
+            </div>
+            <br>
+            <button id="homeToCreateButton" class="createButtons">Try it yourself!</button>
+        </div>
+</div>
+
+<!-- CREATE -->
+<div id="createScreen" class="invisible">
+    <div id="upload">
+        <div id="rawImgContainer">
+            <div class="instruction">
+                <div class="num">1</div>
+                <div class="i">Choose your Image</div>
+            </div>
+            <form id="uploadFileForm">
+                <label>Add image from local: (JPG/JPEG only)
+                    <input type=file id="uploadFileInput" accept="image/jpeg" required>
+                    <input type="submit" value="Upload Image" id="uploadFileSubmit" />
+                </label>
+                <span id="bar"><span id="progress"></span></span>
+            </form>
+            <br>
+
+            <div id="showImagesContainer">
+                <!-- id = "userImagesLabel" class = "imagesLabel" -->
+            </div>
+        </div>
+
+        <div id="mainSelectStyles">
+            <div class="instruction">
+                <div class="num">2</div>
+                <div class="i">Choose your Style</div>
+            </div>
+            <div id="availableStylesContainer">
+                <!-- id = "styleImagesLabel" class = "imagesLabel" -->
+            </div>
+        </div>
+
+        <div id="createArtContainer">
+            <div class="instruction" id="instructionSmall">
+                <div class="num" id="numSmall">3</div>
+                <div class="i" id="iSmall">Create</div>
+            </div>
+            <center>
+                <input type="submit" value="Create Art!" id="createArt" class="createButtons" form="uploadAllForm">
+            </center>
+        </div>
+    </div>
+    <form id="uploadAllForm">
+    </form>
+</div>
+
+<!-- ABOUT -->
+<div id="aboutScreen" class="invisible">
+    <div id = "howItWorks">
+        <h1>How does Neural Style Transfer work?</h1>
+        <h3>We use a Deep Learning algorithm by <a href="https://arxiv.org/abs/1603.08155">Johnson et al.</a></h3>
+        <p>For each style we train a Neural Network to apply the higher level features of a style image to a given content image.
+        </p>
+        <img src="./img/NST-Modell.png"/>
+        <p>We need two Neural Networks for this.</p>
+        <p>The <bold>Image Transformation Network</bold> itself, which is a deep residual Convolutional Neural Network.
+            And the set Loss Network, a VGG16 model pretrained for image classification, which evaluates the transformed images.</p>
+        <img src="img/NST-architecture.png">
+        <p>Training the Transformation Network is done by comparing selected hidden layer activations of the Loss Network between three input images:
+            the target style image, the target content image and the image produced by the Transformation Network.</p>
+        <p>The goal is to minimize the differences between both, the style and content image, and the transformed image.
+            This is realized in the Loss Function which accumulates the differences between the higher level representations of content and style in the Loss Network - and is used to adjust the weights of the Transformation network
+        </p>
+        <p>The abstract perceptual representations of the specific style are thereby learned by the Transformation Network and - when training is done - applied to your image.</p>
+        <button id="aboutToCreateButton" class="createButtons">Try it yourself!</button>
+    </div>
+</div>
+
+<!-- THE TEAM -->
+<div id="theTeamScreen" class="invisible">
+    <div id="introduction">
+        <h1>Hi.</h1>
+        <h2>We are students of the <em>University of Tübingen</em>
+            and this is our Programming Project.</h2>
+        <h1>Meet the Team</h1>
+    </div>
+    <div id="teamContainer">
+        <div id="firstLine" class="lines">
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/timK.jpg)"></div>
+                <b>Tim Köppel</b>
+                <p>Computer Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/claraR.jpg)"></div>
+                <b>Clara Riedmiller</b>
+                <p>Cognitive Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/royC.jpg)"></div>
+                <b>Roy Chandrakant Mehta</b>
+                <p>Cognitive Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/claraG_abstract.jpg)"></div>
+                <b>Clara Grotehans</b>
+                <p>Cognitive Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/leonD.jpg)"></div>
+                <b>Léon Dankert</b>
+                <p>Cognitive Science</p>
+            </div>
+        </div>
+        <br>
+        <div id="secondLine" class="lines">
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/samuelW.jpg)"></div>
+                <b>Samuel Wörz</b>
+                <p>Cognitve Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/pavelH.jpg)"></div>
+                <b>Pavel Hegler</b>
+                <p>Computer Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/gencA.jpg)"></div>
+                <b>Genc Ahmeti</b>
+                <p>Computer Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/abbasS.jpg)"></div>
+                <b>Abbas Sabouni</b>
+                <p>Cognitve Science</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/maximusM_colourful.jpg)"></div>
+                <b>Maximus Mutschler</b>
+                <p>Tutor</p>
+            </div>
+        </div>
+        <div id="thirdLine" class="lines">
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/mario.jpg)"></div>
+                <b>Mario Laux</b>
+                <p>Tutor</p>
+            </div>
+            <div class="Member">
+                <div class="memberPic" style="background-image: url(/img/hamdR_galaxy.jpg)"></div>
+                <b>Hamd Riaz</b>
+                <p>Tutor</p>
+            </div>
+        </div>
+    </div>
+    <div id="contact">
+        <h3>Contact us:
+            <a href="" target="_blank">styleTransferTeam@styleTransfer.com</a></h3>
+    </div>
+</div>
+
+<!-- PROFILE -->
+<div id="profileScreen" class="invisible">
+    <div id="profileContainer">
+        <div id="profilePic"></div>
+        <h2 id="profileName"></h2>
+
+        <b>Your Content Images:</b>
+        <div id="profileRawImages" class="profileDisplays">
+
+        </div>
+
+        <b>Your Stylized Images:</b>
+        <div id="profileStylizedImages" class="profileDisplays">
+
+        </div>
+    </div>
+</div>
+
+<!-- LOGIN -->
+<div id="loginScreen" class="invisible">
+    <div id="loginContainer">
+        <h4>Login:</h4>
+        <p>You can find your stylized Images in your profile on the top-right</p>
+        <form id="loginForm">
+            <h5>Username:</h5>
+            <input type="text" id="username" placeholder="Username" required>
+            <h5>Password:</h5>
+            <input type="password" id="password" placeholder="Password" required>
+            <br>
+            <input type="submit" value="Login">
+            <input type="reset" value="Reset">
+        </form>
+    </div>
+</div>
+
+<!-- RESULT -->
+<div id="resultScreen" class="invisible">
+    <div id="resultDiv">
+        <div id="usedRawImgContainer"></div>
+        <h2 id="plus">&#043;</h2>
+        <div id="usedStyleContainer"></div>
+        <h2 id="arrow">&#9654;</h2>
+        <div id="resultContainer"></div>
+    </div>
+    <!--<div id="downloadResult">
+        <button class="createButtons">Download your Picture</button>
+    </div> -->
+</div>
+
+<!-- MESSAGE -->
+<div id="messageContainer" class="invisible">
+    <span id="closebtn">&times;</span>
+    <p id="message"></p>
+</div>
+
+<!-- LOADER -->
+<div id="loader" class="invisible">
+    <img src="img/loader.gif" alt="Your image is being processed ...">
+    <h2 class="loading">Your Image is being processed <span>.</span><span>.</span><span>.</span></h2>
+</div>
+
+</div>
+</body>
+</html>

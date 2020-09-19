@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=AutoScrabble()
+comment1.params=
+comment1.target=void\ setK\u00FCrzelliste()
+comment2.params=wort
+comment2.target=boolean\ existiertAlsK\u00FCrzel(java.lang.String)
+comment3.params=wort\ stelle
+comment3.target=boolean\ istWortAusKennzeichenM\u00F6glich(java.lang.String,\ int)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

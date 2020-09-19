@@ -1,0 +1,10 @@
+Zimmer 1
+Anna, Carolin, Clara, Lena, Nina, Antonia, Leonie, Lina, Kim, Lisa, Nele, Luisa, Marie, Julia, Laura, Katharina, Pauline, Emma, Miriam, Lara, Jessika, Alina, Charlotte, Josephine, Pia
+Zimmer 2
+Hannah, Sophie, Sarah, Vanessa, Jana, Johanna, Melina, Lilli, Emily, Larissa, Celine
+Zimmer 3
+Lea, Michelle
+Zimmer 4
+Annika, Celina
+Zimmer 5
+Jasmin, Merle, Sofia

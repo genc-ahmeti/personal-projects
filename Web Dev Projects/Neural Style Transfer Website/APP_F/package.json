@@ -1,0 +1,23 @@
+{
+  "name": "nim",
+  "version": "1.0.0",
+  "description": "simple implementation of a browser based NIM game",
+  "main": "server.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Mario Laux",
+  "license": "ISC",
+  "dependencies": {
+    "child-process": "^1.0.2",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "mysql": "^2.18.1",
+    "socket.io": "^2.3.0"
+  }
+}

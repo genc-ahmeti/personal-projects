@@ -1,0 +1,1 @@
+python neural_style/neural_style.py eval --content-image images/content-images/oehm.jpeg --model saved_models/mosaic.pth --output-image test.jpg --cuda 0

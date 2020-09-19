@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Sat Oct  4 18:30:51 2008 -->
+<glade-interface>
+  <widget class="GtkWindow" id="win_main">
+    <property name="title" translatable="yes">Tankomat</property>
+    <property name="resizable">False</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <signal name="destroy" handler="on_win_main_destroy"/>
+    <child>
+      <widget class="GtkFixed" id="fixed1">
+        <property name="width_request">1100</property>
+        <property name="height_request">700</property>
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkButton" id="cmd_start">
+            <property name="width_request">125</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text">Die Simulation starten</property>
+            <property name="label" translatable="yes">gtk-apply</property>
+            <property name="use_stock">True</property>
+            <property name="response_id">0</property>
+            <signal name="clicked" handler="on_cmd_start_clicked"/>
+          </widget>
+          <packing>
+            <property name="x">519</property>
+            <property name="y">655</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="cmd_pause">
+            <property name="width_request">125</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="sensitive">False</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text">Die Simulation pausieren</property>
+            <property name="label" translatable="yes">gtk-media-pause</property>
+            <property name="use_stock">True</property>
+            <property name="response_id">0</property>
+            <signal name="clicked" handler="on_cmd_pause_clicked"/>
+          </widget>
+          <packing>
+            <property name="x">666</property>
+            <property name="y">655</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="button1">
+            <property name="width_request">125</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text">Das Programm beenden</property>
+            <property name="label" translatable="yes">gtk-quit</property>
+            <property name="use_stock">True</property>
+            <property name="response_id">0</property>
+            <signal name="clicked" handler="on_win_main_destroy"/>
+          </widget>
+          <packing>
+            <property name="x">961</property>
+            <property name="y">655</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="cmd_reset">
+            <property name="width_request">125</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="tooltip_text">Das Programm zurücksetzen</property>
+            <property name="label" translatable="yes">gtk-revert-to-saved</property>
+            <property name="use_stock">True</property>
+            <property name="response_id">0</property>
+            <signal name="clicked" handler="on_cmd_reset_clicked"/>
+          </widget>
+          <packing>
+            <property name="x">814</property>
+            <property name="y">655</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator1">
+            <property name="width_request">1099</property>
+            <property name="height_request">60</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">613</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image1">
+            <property name="width_request">1100</property>
+            <property name="height_request">190</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.019999999552965164</property>
+            <property name="pixbuf">logo.png</property>
+          </widget>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator2">
+            <property name="width_request">1100</property>
+            <property name="height_request">76</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">134</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image2">
+            <property name="width_request">492</property>
+            <property name="height_request">189</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.15000000596046448</property>
+            <property name="pixbuf">logo2.png</property>
+          </widget>
+          <packing>
+            <property name="x">608</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_time">
+            <property name="width_request">1100</property>
+            <property name="height_request">53</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.31000000238418579</property>
+            <property name="yalign">0.51999998092651367</property>
+          </widget>
+          <packing>
+            <property name="y">647</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHScale" id="scl_speed">
+            <property name="width_request">257</property>
+            <property name="height_request">37</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="adjustment">1 1 4 1 1 0</property>
+            <property name="fill_level">4</property>
+            <property name="digits">0</property>
+            <property name="value_pos">GTK_POS_LEFT</property>
+            <signal name="value_changed" handler="on_scl_speed_change_value"/>
+          </widget>
+          <packing>
+            <property name="x">-9</property>
+            <property name="y">660</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image3">
+            <property name="width_request">1100</property>
+            <property name="height_request">73</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.029999999329447746</property>
+            <property name="pixbuf">asso.png</property>
+          </widget>
+          <packing>
+            <property name="y">198</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image4">
+            <property name="width_request">1100</property>
+            <property name="height_request">73</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.97000002861022949</property>
+            <property name="pixbuf">scholl.png</property>
+          </widget>
+          <packing>
+            <property name="y">198</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_asso_preis">
+            <property name="width_request">212</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Aktueller Preis: 0.00 Euro</property>
+          </widget>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">280</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_asso_kunden">
+            <property name="width_request">212</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Anzahl Kunden: 0</property>
+          </widget>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">314</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_asso_kunden_std">
+            <property name="width_request">212</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Anzahl Kunden letzte Stunde: 0</property>
+          </widget>
+          <packing>
+            <property name="x">40</property>
+            <property name="y">352</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHSeparator" id="hseparator3">
+            <property name="width_request">1100</property>
+            <property name="height_request">63</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">400</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image5">
+            <property name="width_request">1100</property>
+            <property name="height_request">73</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">rotterdam.png</property>
+          </widget>
+          <packing>
+            <property name="y">198</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_scholl_preis">
+            <property name="width_request">168</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Aktueller Preis: 0,00 Euro</property>
+          </widget>
+          <packing>
+            <property name="x">925</property>
+            <property name="y">280</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_scholl_kunden">
+            <property name="width_request">168</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Anzahl Kunden: 0</property>
+          </widget>
+          <packing>
+            <property name="x">925</property>
+            <property name="y">314</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_oelpreis">
+            <property name="width_request">1100</property>
+            <property name="height_request">49</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">269</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image6">
+            <property name="width_request">1100</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">go-down.png</property>
+          </widget>
+          <packing>
+            <property name="y">316</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_einkaufspreis">
+            <property name="width_request">1100</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="y">360</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_gewinn_asso">
+            <property name="width_request">224</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Gewinn: 0</property>
+          </widget>
+          <packing>
+            <property name="x">38</property>
+            <property name="y">387</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_gewinn_scholl">
+            <property name="width_request">168</property>
+            <property name="height_request">43</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Gewinn: 0</property>
+          </widget>
+          <packing>
+            <property name="x">925</property>
+            <property name="y">387</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkLabel" id="lbl_speed">
+            <property name="width_request">240</property>
+            <property name="height_request">26</property>
+            <property name="visible">True</property>
+            <property name="xalign">0</property>
+            <property name="label" translatable="yes">Echtzeit</property>
+          </widget>
+          <packing>
+            <property name="x">5</property>
+            <property name="y">646</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkScrolledWindow" id="scrolledwindow1">
+            <property name="width_request">1100</property>
+            <property name="height_request">210</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="hscrollbar_policy">GTK_POLICY_NEVER</property>
+            <property name="vscrollbar_policy">GTK_POLICY_AUTOMATIC</property>
+            <child>
+              <widget class="GtkTextView" id="txt_ausgabe">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="left_margin">10</property>
+                <property name="cursor_visible">False</property>
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="y">432</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>

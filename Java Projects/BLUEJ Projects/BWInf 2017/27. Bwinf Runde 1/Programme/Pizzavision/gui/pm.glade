@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Thu Nov 13 16:26:47 2008 -->
+<glade-interface>
+  <widget class="GtkWindow" id="win_main">
+    <property name="title" translatable="yes">Pizzamaker</property>
+    <property name="resizable">False</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="icon">icon.png</property>
+    <signal name="destroy" handler="on_win_main_destroy"/>
+    <child>
+      <widget class="GtkFixed" id="fixed1">
+        <property name="width_request">1100</property>
+        <property name="height_request">950</property>
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkImage" id="image1">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="visible">True</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">boden.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkButton" id="button2">
+            <property name="width_request">120</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+            <property name="label" translatable="yes">gtk-quit</property>
+            <property name="use_stock">True</property>
+            <property name="response_id">0</property>
+            <signal name="clicked" handler="on_win_main_destroy"/>
+          </widget>
+          <packing>
+            <property name="x">968</property>
+            <property name="y">910</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkVSeparator" id="vseparator1">
+            <property name="width_request">95</property>
+            <property name="height_request">950</property>
+            <property name="visible">True</property>
+          </widget>
+          <packing>
+            <property name="x">756</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image3">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">salami.png</property>
+          </widget>
+          <packing>
+            <property name="x">975</property>
+            <property name="y">54</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image2">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">tomaten.png</property>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">189</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image4">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">schinken.png</property>
+          </widget>
+          <packing>
+            <property name="x">825</property>
+            <property name="y">332</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image5">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">pilze.png</property>
+          </widget>
+          <packing>
+            <property name="x">974</property>
+            <property name="y">329</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image6">
+            <property name="width_request">96</property>
+            <property name="height_request">88</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">zwiebeln.png</property>
+          </widget>
+          <packing>
+            <property name="x">833</property>
+            <property name="y">477</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image7">
+            <property name="width_request">97</property>
+            <property name="height_request">93</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">peperoni.png</property>
+          </widget>
+          <packing>
+            <property name="x">975</property>
+            <property name="y">471</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image8">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">ananas.png</property>
+          </widget>
+          <packing>
+            <property name="x">975</property>
+            <property name="y">628</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image9">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">thunfisch.png</property>
+          </widget>
+          <packing>
+            <property name="x">832</property>
+            <property name="y">630</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image10">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">paprika.png</property>
+          </widget>
+          <packing>
+            <property name="x">832</property>
+            <property name="y">778</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image11">
+            <property name="width_request">90</property>
+            <property name="height_request">100</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">oliven.png</property>
+          </widget>
+          <packing>
+            <property name="x">984</property>
+            <property name="y">770</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image12">
+            <property name="width_request">89</property>
+            <property name="height_request">102</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">gewuerze.png</property>
+          </widget>
+          <packing>
+            <property name="x">833</property>
+            <property name="y">181</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image13">
+            <property name="width_request">91</property>
+            <property name="height_request">100</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">souce.png</property>
+          </widget>
+          <packing>
+            <property name="x">830</property>
+            <property name="y">37</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_salami">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Salami</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_salami_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">121</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_gewuerze">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Gewürze</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_gewuerze_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">265</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_tomaten">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Tomaten</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_tomaten_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">265</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_schinken">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Schinken</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_schinken_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">401</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_pilze">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Pilze	</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_pilze_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">401</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_zwiebeln">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Zwiebeln</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_zwiebeln_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">553</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_peperoni">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Peperoni</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_peperoni_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">553</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_thunfisch">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Thunfisch</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_thunfisch_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">706</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_ananas">
+            <property name="width_request">100</property>
+            <property name="height_request">80</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Ananas</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_ananas_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">976</property>
+            <property name="y">706</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_paprika">
+            <property name="width_request">99</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Paprika</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_paprika_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">866</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_oliven">
+            <property name="width_request">105</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="label" translatable="yes">Oliven</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_oliven_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">981</property>
+            <property name="y">866</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkCheckButton" id="ckb_sauce">
+            <property name="width_request">128</property>
+            <property name="height_request">79</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">Tomatensauce</property>
+            <property name="focus_on_click">False</property>
+            <property name="response_id">0</property>
+            <property name="draw_indicator">True</property>
+            <signal name="toggled" handler="on_ckb_sauce_toggled"/>
+          </widget>
+          <packing>
+            <property name="x">835</property>
+            <property name="y">121</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image14">
+            <property name="width_request">806</property>
+            <property name="height_request">189</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">logo.png</property>
+          </widget>
+          <packing>
+            <property name="y">11</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="image15">
+            <property name="width_request">807</property>
+            <property name="height_request">40</property>
+            <property name="visible">True</property>
+            <property name="pixbuf">logo2.png</property>
+          </widget>
+          <packing>
+            <property name="y">168</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_sauce">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">boden_sauce.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_salami">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">salami_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_tomaten">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">tomaten_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_ananas">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">ananas_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_pilze">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">pilze_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_peperoni">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">peperoni_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_zwiebeln">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">zwiebeln_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_paprika">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">paprika_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_fisch">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">thunfisch_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_gewuerze">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">gewuerze_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_schinken">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">schinken_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkImage" id="img_oliven">
+            <property name="width_request">821</property>
+            <property name="height_request">774</property>
+            <property name="xalign">0.30000001192092896</property>
+            <property name="yalign">0</property>
+            <property name="pixbuf">oliven_final.png</property>
+          </widget>
+          <packing>
+            <property name="y">176</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
